@@ -7,22 +7,36 @@ public class Car extends Vehicle {
     private boolean acTersedia;
 
     // Constructor
-    public Car(String merk, String model, int tahunProduksi, String nomorPolisi,
-               double hargaRentalPerHari, int jumlahPenumpang,
-               String tipeTransmisi, boolean acTersedia) {
+    public Car(String merk, String model, int tahunProduksi, String nomorPolisi, double hargaRentalPerHari, int jumlahPenumpang, String tipeTransmisi, boolean acTersedia) {
         // TODO: Implementasi dengan super
+        super(merk, model, tahunProduksi, nomorPolisi, hargaRentalPerHari);
+        this.jumlahPenumpang = jumlahPenumpang;
+        this.tipeTransmisi = tipeTransmisi;
+        this.acTersedia = acTersedia;
     }
 
     // Override displayInfo
     @Override
     public void displayInfo() {
         // TODO: Call super dan tambah info Car
+        System.out.println("\n=== MOBIL ===");
+        super.displayInfo();
+        System.out.println("Jumlah Penumpang: " + jumlahPenumpang);
+        System.out.println("Tipe Transmisi: " + tipeTransmisi);
+        System.out.println("AC: " + (acTersedia ? "Ya" : "Tidak"));
     }
 
     // Override biaya rental (Car bisa punya surcharge)
     @Override
     public double hitungBiayaRental(int jumlahHari) {
         // TODO: Implementasi dengan possible surcharge untuk AC
-        return 0;
+        if (acTersedia){
+            super.hitungBiayaRental(jumlahHari);
+        }
+        return super.hitungBiayaRental(jumlahHari);
+    }
+
+    public String getTipeTransmisi() {
+        return tipeTransmisi;
     }
 }

@@ -13,17 +13,30 @@ public class Vehicle {
     public Vehicle(String merk, String model, int tahunProduksi,
                    String nomorPolisi, double hargaRentalPerHari) {
         // TODO: Implementasi
+        this.merk = merk;
+        this.model = model;
+        this.tahunProduksi = tahunProduksi;
+        this.nomorPolisi = nomorPolisi;
+        this.hargaRentalPerHari = hargaRentalPerHari;
+        this.tersedia = true;
     }
 
     // Method untuk rental
     public double hitungBiayaRental(int jumlahHari) {
         // TODO: Return harga rental * jumlah hari
-        return 0;
+        return hargaRentalPerHari * jumlahHari;
     }
 
     // Method displayInfo
     public void displayInfo() {
         // TODO: Display info vehicle
+        System.out.println("Merk: " + merk);
+        System.out.println("Model: " + model);
+        System.out.println("Tahun Produksi: " + tahunProduksi);
+        System.out.println("Nomor Polisi: " + nomorPolisi);
+        System.out.println("Harga Rental/hari: Rp." + hargaRentalPerHari);
+        System.out.println("Status: " + (tersedia ? "Tersedia" : "Tidak Tersedia"));
+
     }
 
     // Getters and setters
@@ -34,4 +47,17 @@ public class Vehicle {
     public void setTersedia(boolean tersedia) {
         this.tersedia = tersedia;
     }
+
+    public String getMerk() {
+        return merk;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getHargaRentalPerHari() {
+        return hargaRentalPerHari;
+    }
+
 }
